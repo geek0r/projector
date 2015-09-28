@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Eric Bartels</authors>
+    <owners>Eric Bartels</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>$description$</description>
+    <releaseNotes>foobar</releaseNotes>
+    <copyright>Copyright 2015 CustomSoft CS GmbH</copyright>
+    <tags>EntityFramework projection pagination sorting filtering</tags>
+  </metadata>
+  <files>
+		<file src="bin\Release\CustomSoft.*" target="" />
+	</files>
+</package>
