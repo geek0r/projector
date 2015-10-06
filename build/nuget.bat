@@ -1,2 +1,2 @@
 cd ..\src\CustomSoft.Projector
-nuget pack -OutputDirector ../../nuget
+nuget pack CustomSoft.Projector.csproj -Prop Configuration=Release -OutputDirector ../../nuget

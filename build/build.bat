@@ -1,3 +1,3 @@
-msbuild ../src/CustomSoft.Projector.sln /t:Clean /p:Configuration=Release
+msbuild ../src/CustomSoft.Projector.sln /p:Configuration=Release
 
 nuget.bat
