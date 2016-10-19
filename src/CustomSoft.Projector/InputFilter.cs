@@ -6,18 +6,18 @@
   using System.Linq;
 
   /// <summary>
-  /// The representation of the Ext JS filter objects
+  /// The representation of the Ext JS json-encoded filter objects
   /// </summary>
   public class InputFilter
   {
-    public String Property { get; set; }
+    public string Property { get; set; }
 
     public string Value { get; set; }
 
-    public String Operator { get; set; }
+    public string Operator { get; set; }
 
     /// <summary>
-    /// Is the value not null or whitespace?
+    /// Is there a valid value to filter for?
     /// </summary>
     public bool HasValidValue
     {

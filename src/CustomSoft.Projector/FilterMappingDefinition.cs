@@ -3,6 +3,9 @@
   using System;
   using System.ComponentModel;
 
+  /// <summary>
+  /// Define how external fields are mapped into fields of the database
+  /// </summary>
   public class FilterMappingDefinition
   {
     #region Ctor
@@ -33,8 +36,8 @@
     /// <param name="field">The external fieldname</param>
     /// <param name="destination">The internal fieldname mapped against the datasource</param>
     /// <param name="t">The type of the field. Nullable types need to be specified</param>
-    /// <param name="defaultValue">The default value to use for filtering</param>
-    /// <param name="defaultComparison">The default comparison operator if not specified</param>
+    /// <param name="defaultValue">The default value to use for filtering if not specified by the input</param>
+    /// <param name="defaultComparison">The default comparison operator if not specified be the input</param>
     public FilterMappingDefinition(string field, string destination, Type t, object defaultValue, string defaultComparison)
     {
       this.Field = field;

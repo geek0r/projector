@@ -2,14 +2,39 @@
 {
   using System;
 
+  /// <summary>
+  /// The configuration for sorting fields
+  /// </summary>
   public class SortMappingDefinition
   {
+    public const string DIRECTION_ASCENDING = "ASC";
+
+    public const string DIRECTION_DESCENDING = "DESC";
+
     #region Ctor
+    /// <summary>
+    /// Configure sorting where source and destination are equal.
+    /// purchaseOrderId -> purchaseOrderId
+    /// </summary>
+    /// <param name="field"></param>
+    public SortMappingDefinition(string field)
+    {
+      this.Field = field;
+      this.Destination = field;
+      this.DefaultDirection = DIRECTION_ASCENDING;
+    }
+
+    /// <summary>
+    /// Configure sorting where field is mapped to destination.
+    /// purchaseOrderId -> bes_bestell_nummer
+    /// </summary>
+    /// <param name="field"></param>
+    /// <param name="destination"></param>
     public SortMappingDefinition(string field, string destination)
     {
       this.Field = field;
       this.Destination = destination;
-      this.DefaultDirection = "ASC";
+      this.DefaultDirection = DIRECTION_ASCENDING;
     }
 
     public SortMappingDefinition(string field, string destination, string defaultDirection)

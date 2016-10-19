@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CustomSoft.Projector.Test
 {
@@ -38,6 +39,24 @@ namespace CustomSoft.Projector.Test
       ProjectionConfiguration.ConfigureSorting(typeof(String), Sortings);
 
       Assert.IsNotNull(ProjectionConfiguration.GetSortMapping(typeof(String)));
+    }
+
+    [TestMethod]
+    public void Sorting_Configuration_Is_Valid_When_Source_And_Destination_Equal()
+    {
+      ProjectionConfiguration.ConfigureSorting(typeof(String),
+        new List<SortMappingDefinition>()
+        {
+          new SortMappingDefinition("purchaseOrderId")
+        });
+
+      Assert.IsNotNull(ProjectionConfiguration.GetSortMapping(typeof(String)));
+      Assert.IsTrue(ProjectionConfiguration.GetSortMapping(typeof(String))
+        .Definition
+        .FirstOrDefault()
+        .Destination
+        .Equals("purchaseOrderId")
+      );
     }
 
     [TestMethod]
