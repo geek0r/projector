@@ -23,8 +23,8 @@
       var sorting = InputSorting.FromInput(sort);
       var filtering = InputFilter.FromInput(filter);
 
-      query = FilterMapping.ApplyFilter(ProjectionConfiguration.GetFilterMapping(typeof(T)), filtering, query);
       query = SortMapping.ApplySorting<T>(ProjectionConfiguration.GetSortMapping(typeof(T)), sorting, query, initiallySorted);
+      query = FilterMapping.ApplyFilter(ProjectionConfiguration.GetFilterMapping(typeof(T)), filtering, query);
 
       if (offset < 0)
       {

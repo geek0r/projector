@@ -67,7 +67,7 @@
         // Find the specified input filter for the currently processed filter-definition
         var inputFilter = filters.Get(def.Field);
         MemberExpression left = null;
-        var param = Expression.Parameter(typeof(T), "inputFilter");
+        var param = Expression.Parameter(typeof(T), "f");
 
         try
         {

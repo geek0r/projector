@@ -79,6 +79,11 @@
     /// <returns></returns>
     public static bool Exists(this IEnumerable<InputFilter> data, string key)
     {
+      if (null == data)
+      {
+        return false;
+      }
+
       return null != data
         .Where(x => x.Property == key || x.Field == key)
         .FirstOrDefault();
