@@ -9,10 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>foobar</releaseNotes>
-    <copyright>Copyright 2015 CustomSoft CS GmbH</copyright>
-    <tags>EntityFramework projection pagination sorting filtering</tags>
+    <copyright>Copyright 2015-2016 CustomSoft CS GmbH</copyright>
+    <tags>Ext JS EntityFramework projection pagination sorting filtering</tags>
   </metadata>
-  <files>
-		<file src="bin\Release\CustomSoft.*" target="" />
-	</files>
 </package>

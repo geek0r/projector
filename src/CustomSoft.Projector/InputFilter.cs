@@ -10,6 +10,12 @@
   /// </summary>
   public class InputFilter
   {
+    /// <summary>
+    /// For legacy Ext JS code which still contains 'field'
+    /// instead of 'property'
+    /// </summary>
+    public string Field { get; set; }
+
     public string Property { get; set; }
 
     public string Value { get; set; }
@@ -73,7 +79,9 @@
     /// <returns></returns>
     public static bool Exists(this IEnumerable<InputFilter> data, string key)
     {
-      return null != data.Where(x => x.Property == key).FirstOrDefault();
+      return null != data
+        .Where(x => x.Property == key || x.Field == key)
+        .FirstOrDefault();
     }
 
     /// <summary>
@@ -89,7 +97,9 @@
         return null;
       }
 
-      return data.Where(x => x.Property == key).FirstOrDefault();
+      return data
+        .Where(x => x.Property == key || x.Field == key)
+        .FirstOrDefault();
     }
 
     /// <summary>

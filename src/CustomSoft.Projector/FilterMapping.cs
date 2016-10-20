@@ -64,12 +64,10 @@
           continue;
         }
 
-        // Yes there is a filter so apply it
-        //foreach (var f in filters.Get(def.Field))
-        //{
-        var f = filters.Get(def.Field);
+        // Find the specified input filter for the currently processed filter-definition
+        var inputFilter = filters.Get(def.Field);
         MemberExpression left = null;
-        var param = Expression.Parameter(typeof(T), "f");
+        var param = Expression.Parameter(typeof(T), "inputFilter");
 
         try
         {
@@ -77,14 +75,13 @@
         }
         catch (Exception err)
         {
-          throw new ArgumentOutOfRangeException(String.Format("Error during field mapping for {0}:{1}", f.Property, def.Destination), err);
+          throw new ArgumentOutOfRangeException(String.Format("Error during field mapping for {0}:{1}", inputFilter.Property, def.Destination), err);
         }
 
-        var pred = FilterMapping.GetOperatorLambda(def, f, param, left);
+        var pred = FilterMapping.GetOperatorLambda(def, inputFilter, param, left);
         var expr = Expression.Call(typeof(Queryable), "Where", new Type[] { typeof(T) }, Expression.Constant(source), pred);
 
         source = source.Provider.CreateQuery<T>(expr);
-        //}
       }
 
       return source;
